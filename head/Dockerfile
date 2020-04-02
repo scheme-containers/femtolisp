@@ -6,6 +6,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
 WORKDIR /build
 RUN git clone https://github.com/JeffBezanson/femtolisp.git --depth 1
 WORKDIR /build/femtolisp
+RUN mkdir -p /usr/local/share/flisp/
 RUN cp -p flisp.boot /usr/local/share/flisp/flisp.boot
 RUN make CFLAGS='-D INITFILE="/usr/local/share/flisp/flisp.boot"'
 RUN cp -p flisp /usr/local/bin/
